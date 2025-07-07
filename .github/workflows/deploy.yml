@@ -1,9 +1,10 @@
-name: Deploy to codeigntor
+name: Deploy to AWS Lightsail
  
 on:
   push:
     branches: [main]
- jobs:
+ 
+jobs:
   deploy:
     runs-on: ubuntu-latest
  
@@ -11,16 +12,16 @@ on:
     - name: Checkout code
       uses: actions/checkout@v3
  
-   - name: Install SSH key
+    - name: Install SSH key
       uses: webfactory/ssh-agent@v0.5.4
       with:
         ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
  
-     - name: Disable SSH Host Key Checking
+    - name: Disable SSH Host Key Checking
       run: |
         mkdir -p ~/.ssh
         echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
  
-    - name: Copy files to codeignitor
+    - name: Copy files to Lightsail
       run: |
         rsync -avz --delete ./ root@213.136.84.162:/var/www/app
