@@ -12,15 +12,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
  
- #  - name: Install SSH key
- #     uses: webfactory/ssh-agent@v0.5.4
-  #    with:
-  #      ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
+   - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+        ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
  
-    # - name: Disable SSH Host Key Checking
-     # run: |
-     #   mkdir -p ~/.ssh
-     #   echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+     - name: Disable SSH Host Key Checking
+      run: |
+        mkdir -p ~/.ssh
+        echo -e "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
  
     - name: Copy files to codeignitor
       run: |
