@@ -1,0 +1,9 @@
+name: Deploy to Lightsail
+on:
+  push:
+    branches: [staging]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
