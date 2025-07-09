@@ -15,7 +15,7 @@ jobs:
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.5.4
         with:
-          ssh-private-key: ${{ secrets.staging_lightsail_key }}
+          ssh-private-key: ${{ secrets.LIGHTSAIL_SSH_KEY }}
 
       - name: Disable SSH Host Key Checking
         run: |
