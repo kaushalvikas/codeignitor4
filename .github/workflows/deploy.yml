@@ -24,7 +24,7 @@ jobs:
 
       - name: Rsync Code to Lightsail (Exclude sensitive files)
         run: |
-          rsync -avz --checksum --delete \
+          rsync -avz --checksum --no-times --delete \
             --exclude=".git" \
             --exclude=".env" \
             --exclude="node_modules" \
